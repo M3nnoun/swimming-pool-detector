@@ -1,1 +1,3 @@
-AIzaSyCgel4ZGkjqq47gjp0h1084we0inpDQoPE
+opencv-python
+numpy
+pillow
