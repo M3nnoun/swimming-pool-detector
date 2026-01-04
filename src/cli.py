@@ -1,22 +1,19 @@
 import argparse
 from pathlib import Path
 
-
 from detectors.opencv_detector import OpenCvDetector
-from detectors.llm_detector import LlmDetector
-from utils.image import load_image , draw_polygons
+from utils.image import load_image, draw_polygons
 from utils.output import save_coordinates
 import cv2
 
 DETECTORS = {
-    "opencv": OpenCvDetector,
-    "llm":    LlmDetector
+    "opencv": OpenCvDetector
 }
 
 def main():
     parser = argparse.ArgumentParser(description="Swimming pool detector")
     parser.add_argument("image", type=str, help="input image path")
-    parser.add_argument("-m", "--method", choices=["opencv", "llm"], default="opencv",
+    parser.add_argument("-m", "--method", choices=["opencv"], default="opencv",
                         help="detection method")
     parser.add_argument("-o", "--output-dir", type=str, default="./data/output",
                         help="where to save results")
@@ -29,10 +26,6 @@ def main():
         return 1
 
     detector_class = DETECTORS.get(args.method)
-    if not detector_class:
-        print(f"Unknown method: {args.method}")
-        return 1
-
     print(f"Using detector: {args.method}")
     detector = detector_class()
 
@@ -49,7 +42,7 @@ def main():
 
     if coordinates:
         img = load_image(str(input_path))
-        draw_polygons(img, coordinates, color=(0,0,255), thickness=1)
+        draw_polygons(img, coordinates, color=(0, 0, 255), thickness=1)
         cv2.imwrite(str(image_path), img)
         print(f"Results saved:")
         print(f"  Coordinates → {coord_path}")
