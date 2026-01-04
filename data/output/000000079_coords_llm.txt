@@ -1,0 +1,4 @@
+Detected Swimming Pool Boundary Coordinates
+==========================================
+
+No pools detected.
