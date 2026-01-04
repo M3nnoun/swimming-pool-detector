@@ -79,9 +79,7 @@ pip install opencv-python numpy pillow
 python src/cli.py data/input/your_image.jpg
 
 # Custom options
-python src/cli.py data/input/000000079.jpg \
-  --thickness 2 \
-  --output-dir results/today/
+python src/cli.py data/input/000000079.jpg --thickness 2 --output-dir data/output/
 ```
 
 ### Available Arguments
