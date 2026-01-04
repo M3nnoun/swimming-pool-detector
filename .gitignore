@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+venv-sanad/
+
+# Data outputs
+*.csv
+*.json
+
+# IDE
+.vscode/
